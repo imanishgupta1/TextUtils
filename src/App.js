@@ -1,7 +1,7 @@
 import "./App.css";
-import About from "./components/About";
+// import About from "./components/About";
 import Navbar from "./components/Navbar";
-// import TextForm from "./components/TextForm";
+import TextForm from "./components/TextForm";
 
 function App() {
   return (
@@ -10,8 +10,8 @@ function App() {
       {/* <Navbar  />   */}
       {/*  container , my-3, ek class hoti hai bootstrap mein Jo css karti hai usko */ }
       <div className="container my-3"> 
-        {/* <TextForm heading = "Enter the text to analyse" /> */}
-        <About/>
+        <TextForm heading = "Enter the text to analyse" />
+        {/* <About/> */}
       </div>
       </>
   );

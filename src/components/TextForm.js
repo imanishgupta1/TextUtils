@@ -15,9 +15,20 @@ export default function TextForm(props) {
     let newText = text.toLowerCase();
     setText(newText);
   }
-  function handleClearClick(){
-    let newText = ''
-    setText(newText)
+  function handleClearClick() {
+    let newText = "";
+    setText(newText);
+  }
+  function handleCopy(){
+    var text = document.getElementById("myBox")
+    text.select();
+    navigator.clipboard.writeText(text.value)
+  }
+
+  function handleExtraSpace (){
+    let newText1 = text.split(/[ ] +/)
+    setText(newText1.join(" "))
+    // console.log('jii')
   }
 
   function handleOnChange(event) {
@@ -37,8 +48,8 @@ export default function TextForm(props) {
           rows="9"
         ></textarea>
       </div>
-      <button className="btn btn-primary mx-2" onClick={handleUpClick}  >
-      Convert to Uppercase
+      <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+        Convert to Uppercase
       </button>
       <button className="btn btn-primary mx-2" onClick={handleLowClick}>
         Convert to Lowercase
@@ -46,9 +57,18 @@ export default function TextForm(props) {
       <button className="btn btn-primary mx-2" onClick={handleClearClick}>
         Clear all
       </button>
+      <button className="btn btn-primary mx-2" onClick={handleCopy}>
+        Copy
+      </button>
+      <button className="btn btn-primary mx-2" onClick={handleExtraSpace}>
+        Remove Extra Space
+      </button>
       <div className="container my-3">
         <h2>Your Text Summary</h2>
-        <p> {text.split(" ").length} words and {text.length} characters</p>
+        <p>
+          {" "}
+          {text.split(" ").length} words and {text.length} characters
+        </p>
         <p>Minutes read {0.008 * text.split(" ").length} </p>
         <h2>preview </h2>
         <p> {text}</p>
